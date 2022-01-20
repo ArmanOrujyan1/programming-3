@@ -1,4 +1,8 @@
-class grass extends LivingCreature {
+class Grass extends LivingCreature {
+    constructor(x, y, index) {
+        super(x, y, index)
+        this.energy = 17;
+    }
     mul() {
         this.energy++;
         let found = this.chooseCell(0);
