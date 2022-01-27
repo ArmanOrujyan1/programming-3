@@ -1,6 +1,6 @@
 let LivingCreature = require('./LivingCreature')
 // class Fire
-module.exports = class fire extends LivingCreature {
+module.exports = class Fire extends LivingCreature {
     constructor(x, y, index) {
         super(x, y, index)
         this.energy = 14;
@@ -35,14 +35,14 @@ module.exports = class fire extends LivingCreature {
     }
     // Mul method ----------------------------------------------------------------
     mul() {
-        let found = this.chooseCell(0);
-        let exact = random(found)
+        let found = super.chooseCell(0);
+        let exact = found[Math.floor(Math.random() * found.length)]
 
         if (exact && this.energy > 16) {
             let x = exact[0];
             let y = exact[1];
 
-            let eater = new fire(x, y);
+            let eater = new Fire(x, y);
             matrix[y][x] = 4;
             fireArr.push(eater);
 
@@ -52,8 +52,8 @@ module.exports = class fire extends LivingCreature {
 
     // Eat method ----------------------------------------------------------------
     eat() {
-        let found = this.chooseCell(1, 3);
-        let exact = random(found)
+        let found = super.chooseCell(1, 3);
+        let exact = found[Math.floor(Math.random() * found.length)]
 
         if (exact) {
             this.energy += 2;
@@ -86,9 +86,8 @@ module.exports = class fire extends LivingCreature {
     }
     // Move method --------------------------------------------------------------------
     move() {
-        let found = this.chooseCell(0);
-        let exact = random(found)
-
+        let found = super.chooseCell(0);
+        let exact = found[Math.floor(Math.random() * found.length)]
         if (exact) {
             let x = exact[0];
             let y = exact[1];

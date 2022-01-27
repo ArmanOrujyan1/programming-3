@@ -35,8 +35,8 @@ module.exports = class GrassPredator extends LivingCreature {
     }
     // Mul method ----------------------------------------------------------------
     mul() {
-        let found = this.chooseCell(0);
-        let exact = random(found)
+        let found = super.chooseCell(0);
+        let exact = found[Math.floor(Math.random() * found.length)]
 
         if (exact && this.energy > 14) {
             let x = exact[0];
@@ -54,8 +54,8 @@ module.exports = class GrassPredator extends LivingCreature {
 
     // Eat method ----------------------------------------------------------------
     eat() {
-        let found = this.chooseCell(1, 2);
-        let exact = random(found)
+        let found = super.chooseCell(1,2);
+        let exact = found[Math.floor(Math.random() * found.length)]
 
         if (exact) {
             this.energy += 2;
@@ -88,8 +88,8 @@ module.exports = class GrassPredator extends LivingCreature {
     }
     // Move method --------------------------------------------------------------------
     move() {
-        let found = this.chooseCell(0);
-        let exact = random(found)
+        let found = super.chooseCell(0);
+        let exact = found[Math.floor(Math.random() * found.length)]
 
         if (exact) {
             let x = exact[0];
