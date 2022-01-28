@@ -1,11 +1,9 @@
 var socket = io();
 var side = 14;
 
-
-
 function setup() {
     frameRate(100);
-    let canvas = createCanvas(80 * side, 64 * side);
+    createCanvas(80 * side, 64 * side);
    }
 
 function nkarel(matrix) {
@@ -44,8 +42,7 @@ function nkarel(matrix) {
     setInterval(
         function () {
             socket.on('send matrix', nkarel)
-        }, 1000
-    )
+        }, 100);
 
     
 
