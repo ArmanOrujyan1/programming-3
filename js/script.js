@@ -1,8 +1,8 @@
 var socket = io();
-var side = 14;
+var side = 12;
 
 function setup() {
-    frameRate(100);
+    // frameRate(100);
     createCanvas(80 * side, 64 * side);
    }
 

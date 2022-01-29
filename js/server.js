@@ -42,10 +42,10 @@ function CreateMatrix(m, n) {
       }
     
       AddCharacter(1, 40);
-      AddCharacter(2, 10);
-      AddCharacter(3, 10);
-      AddCharacter(4, 10);
-      AddCharacter(5, 10);
+      AddCharacter(2, 20);
+      AddCharacter(3, 20);
+      AddCharacter(4, 20);
+      AddCharacter(5, 0);
 }
 
 CreateMatrix(80, 64);
@@ -102,7 +102,7 @@ function game() {
     io.sockets.emit("send matrix", matrix);
 }
 
-setInterval(game, 1000)
+setInterval(game, 10)
 
 io.on('connection', function () {
     createObject(matrix)

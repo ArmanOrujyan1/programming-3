@@ -38,7 +38,7 @@ module.exports = class Water extends LivingCreature {
         let found = super.chooseCell(0);
         let exact = found[Math.floor(Math.random() * found.length)]
 
-        if (exact && this.energy > 14) {
+        if (exact && this.energy > 10) {
             let x = exact[0];
             let y = exact[1];
 
@@ -52,7 +52,7 @@ module.exports = class Water extends LivingCreature {
 
     // Eat method ----------------------------------------------------------------
     eat() {
-        let found = super.chooseCell(4,2,3);
+        let found = super.chooseCell(4,2,3,1);
         let exact = found[Math.floor(Math.random() * found.length)]
 
         if (exact) {
@@ -60,11 +60,18 @@ module.exports = class Water extends LivingCreature {
             let x = exact[0];
             let y = exact[1];
 
+            for (let i = 0; i < grassArr.length; i++) {
+                if (grassArr[i].x == x && grassArr[i].y == y) {
+                    grassArr.splice(i, 1)
+                }
+            }
+
             for (let i = 0; i < grassEaterArr.length; i++) {
                 if (grassEaterArr[i].x == x && grassEaterArr[i].y == y) {
                     grassEaterArr.splice(i, 1)
                 }
             }
+
             for (let i = 0; i < grassPredator.length; i++) {
                 if (grassPredator[i].x == x && grassPredator[i].y == y) {
                     grassPredator.splice(i, 1)
