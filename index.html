@@ -6,10 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!-- <link rel="stylesheet" href="style.css"> -->
     <title>Final Work</title>
-    <style>
 
-        
-/* canvas {
+    <script src="socket.io/socket.io.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.14/p5.js"></script>
+    <script src="js/script.js"></script>
+
+    <style>     
+canvas {
     position: absolute;
     left: 50%;
     top: 50%;
@@ -25,46 +28,34 @@
     background-color: #000000;
     margin: 0;
     overflow-x: hidden;
-  }
-  
-  .bg {
-    position: fixed;
-    top: -50%;
-    left: -50%;
-    right: -50%;
-    bottom: -50%;
-    width: 200%;
-    height: 200vh;
-    background: transparent url('http://assets.iceable.com/img/noise-transparent.png') repeat 0 0;
-    background-repeat: repeat;
-    animation: bg-animation .2s infinite;
-    opacity: .9;
-    visibility: visible;
-  }
-  
-  @keyframes bg-animation {
-      0% { transform: translate(0,0) }
-      10% { transform: translate(-5%,-5%) }
-      20% { transform: translate(-10%,5%) }
-      30% { transform: translate(5%,-10%) }
-      40% { transform: translate(-5%,15%) }
-      50% { transform: translate(-10%,5%) }
-      60% { transform: translate(15%,0) }
-      70% { transform: translate(0,10%) }
-      80% { transform: translate(-15%,0) }
-      90% { transform: translate(10%,5%) }
-      100% { transform: translate(5%,0) }
-  } */
-
-
-  
-
+  } 
     </style>
 </head>
 <body>
-    <div class="bg"></div>
-    <script src="socket.io/socket.io.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.14/p5.js"></script>
-    <script src="js/script.js"></script>
+    <div class="bg">
+
+      <div class="tools">
+        <h1 style="color:rgb(255, 255, 255)">Events</h1>
+        <ul>
+            <li>
+                <button onclick="kill()">Kill them all</button>
+            </li>
+            <li>
+                <button onclick="addGrass()">Add grass</button>
+            </li>
+            <li>
+                <button onclick="addGrassEater()">Add grass eater</button>
+            </li>
+            <li>
+                <button onclick="addGrassPredator()">Add grass predator</button>
+            </li>
+            <li>
+                <button onclick="addFire()">Add fire</button>
+            </li>
+        </ul>
+    </div>
+
+    </div>
+
 </body>
 </html>

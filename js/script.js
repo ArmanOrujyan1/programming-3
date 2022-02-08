@@ -3,8 +3,10 @@ var side = 12;
 
 function setup() {
     // frameRate(100);
-    createCanvas(80 * side, 64 * side);
+    createCanvas(60 * side, 60 * side);
    }
+
+
 
 function nkarel(matrix) {
     background(225);
@@ -31,19 +33,28 @@ function nkarel(matrix) {
                 fill("#e22822");
                 rect(x * side, y * side, side, side);
             }
-            else if (matrix[y][x] == 5) {
-                fill("#1950FA");
-                rect(x * side, y * side, side, side);
-            }
         }
     }
 }
 
-    setInterval(
-        function () {
-            socket.on('send matrix', nkarel)
-        }, 100);
+    socket.on('send matrix', nkarel)
+      
 
+        function kill() {
+            socket.emit("kill")
+        }
+        function addGrass() {
+            socket.emit("add grass")
+        }
+        function addGrassEater() {
+            socket.emit("add grassEater")
+        }
+        function addGrassPredator() {
+            socket.emit("add grass predator")
+        }
+        function addFire() {
+            socket.emit("add fire")
+        }
     
 
 
