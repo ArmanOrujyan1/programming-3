@@ -29,44 +29,118 @@ canvas {
     margin: 0;
     overflow-x: hidden;
   } 
+
+.evb {
+  align-items: center;
+  appearance: none;
+  background-color: #fff;
+  border-radius: 24px;
+  border-style: none;
+  box-shadow: rgba(0, 0, 0, .2) 0 3px 5px -1px,rgba(0, 0, 0, .14) 0 6px 10px 0,rgba(0, 0, 0, .12) 0 1px 18px 0;
+  box-sizing: border-box;
+  color: #3c4043;
+  cursor: pointer;
+  display: inline-flex;
+  fill: currentcolor;
+  font-family: "Google Sans",Roboto,Arial,sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  height: 48px;
+  justify-content: center;
+  letter-spacing: .25px;
+  line-height: normal;
+  max-width: 100%;
+  overflow: visible;
+  padding: 2px 24px;
+  position: relative;
+  text-align: center;
+  text-transform: none;
+  transition: box-shadow 280ms cubic-bezier(.4, 0, .2, 1),opacity 15ms linear 30ms,transform 270ms cubic-bezier(0, 0, .2, 1) 0ms;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: auto;
+  will-change: transform,opacity;
+  z-index: 0;
+  margin-left: 20px;
+  margin-top: 20px;
+}
+
+.evb:hover {
+  background: #F6F9FE;
+  color: #174ea6;
+}
+
+.evb:active {
+  box-shadow: 0 4px 4px 0 rgb(60 64 67 / 30%), 0 8px 12px 6px rgb(60 64 67 / 15%);
+  outline: none;
+}
+
+.evb:focus {
+  outline: none;
+  border: 2px solid #4285f4;
+}
+
+.evb:not(:disabled) {
+  box-shadow: rgba(60, 64, 67, .3) 0 1px 3px 0, rgba(60, 64, 67, .15) 0 4px 8px 3px;
+}
+
+.evb:not(:disabled):hover {
+  box-shadow: rgba(60, 64, 67, .3) 0 2px 3px 0, rgba(60, 64, 67, .15) 0 6px 10px 4px;
+}
+
+.evb:not(:disabled):focus {
+  box-shadow: rgba(60, 64, 67, .3) 0 1px 3px 0, rgba(60, 64, 67, .15) 0 4px 8px 3px;
+}
+
+.evb:not(:disabled):active {
+  box-shadow: rgba(60, 64, 67, .3) 0 4px 4px 0, rgba(60, 64, 67, .15) 0 8px 12px 6px;
+}
+
+.evb:disabled {
+  box-shadow: rgba(60, 64, 67, .3) 0 1px 3px 0, rgba(60, 64, 67, .15) 0 4px 8px 3px;
+}
+
+.infob {
+    margin-top: 10px;
+}
+
+
+
+
+
+
     </style>
 </head>
 <body>
     <div class="bg">
+      <div class="container">
+          <h1 style="color: #fff; margin-top: 30px; margin-left: 30px;">Events</h1>
+                <button onclick="kill()" class="evb">Kill them all</button>
+                <div class="row">
+                    <button onclick="addGrass()" class="evb col">Add Grass</button>
+                    <button onclick="deleteGrass()" class="evb col">Delete Grass</button>
+                </div>
 
-      <div class="tools">
-        <h1 style="color:rgb(255, 255, 255)">Events</h1>
-        <ul>
-            <li>
-                <button onclick="kill()">Kill them all</button>
-            </li>
-            <li>
-                <button onclick="addGrass()">Add grass</button>
-            </li>
-            <li>
-                <button onclick="addGrassEater()">Add grass eater</button>
-            </li>
-            <li>
-                <button onclick="addGrassPredator()">Add grass predator</button>
-            </li>
-            <li>
-                <button onclick="addFire()">Add fire</button>
-            </li>
-            <li>
-                <button onclick="deleteGrass()">Delete Grass</button>
-            </li>
-            <li>
-                <button onclick="deleteGrassEater()">Delete Grass Eater</button>
-            </li>
-            <li>
-                <button onclick="deleteGrassPredator()">Delete Grass Predator</button>
-            </li>
-            <li>
-                <button onclick="deleteFire()">Delete Fire</button>
-            </li>
-        </ul>
+                <div class="row">
+                    <button onclick="addGrassEater()" class="evb" >Add Grass Eater</button>
+                    <button onclick="deleteGrassEater()" class="evb">Delete Grass Eater</button>
+                </div>
+
+                <div class="row">
+                    <button onclick="addGrassPredator()" class="evb" >Add Grass Predator</button>
+                    <button onclick="deleteGrassPredator()" class="evb">Delete Grass Predator</button>
+                </div>
+                
+                <div class="row">
+                    <button onclick="addFire()" class="evb">Add fire</button>
+                    <button onclick="deleteFire()" class="evb">Delete Fire</button>
+                </div>           
+                
     </div>
 
+    <h1 style="color: aliceblue; margin-top: 30px; margin-left: 30px;" id = 'wt'></h1>
+    <button onclick="info()" class="infob evb">Info about weather</button>
     </div>
 
 </body>

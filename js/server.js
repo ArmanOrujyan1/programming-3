@@ -237,3 +237,15 @@ io.on('connection', function (socket) {
     socket.on("deleteFire", deleteFire);
 });
 
+
+var statistics = {};
+
+setInterval(function() {
+    statistics.grass = grassArr.length;
+    statistics.grassEater = grassEaterArr.length;
+    statistics.grassPredator = grassPredator.length;
+    statistics.fire = fireArr.length;
+    fs.writeFile("statistics.json", JSON.stringify(statistics), function(){
+        console.log("send")
+    })
+},1000)

@@ -20,12 +20,19 @@ function nkarel(matrix) {
             if (matrix[y][x] == 1) {
                 if (weath == "summer") {
                     fill("green");
+                    document.getElementById("wt").innerHTML = "It`s Summer!";
                 } else if (weath == "autumn") {
                     fill("#333300");
+                    document.getElementById("wt").innerHTML = "It`s Autumn!";
+
                 } else if (weath == "winter") {
                     fill("white");
+                    document.getElementById("wt").innerHTML = "It`s Winter!";
+
                 } else if (weath == "spring") {
                     fill("#4dffa6");
+                    document.getElementById("wt").innerHTML = "It`s Spring!";
+
                 }
 
             }
@@ -77,6 +84,9 @@ function deleteFire() {
     socket.emit("deleteFire")
 }
 
+function info() {
+    alert("The weather changes every 5 seconds")
+}
 
 
 
