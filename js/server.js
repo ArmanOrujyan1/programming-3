@@ -4,6 +4,7 @@ var server = require('http').Server(app);
 var io = require('socket.io')(server);
 var fs = require("fs");
 
+weath = "winter";
 Grass = require("./Grass")
 GrassEater = require("./GrassEater")
 GrassPredator = require("./GrassPredator")
@@ -154,6 +155,75 @@ function addGrassPredator() {
         io.sockets.emit("send matrix", matrix);
 }
 
+function deleteGrass() {
+    grassArr = [];
+    for (var y = 0; y < 60; y++) {
+        for (var x = 0; x < 60; x++) {
+            if(matrix[y][x] = 1) {
+                matrix[y][x] = 0
+            }
+        }
+    }
+    io.sockets.emit("send matrix", matrix);
+}
+
+function deleteGrassEater() {
+    grassEaterArr = []
+    for (var y = 0; y < 60; y++) {
+        for (var x = 0; x < 60; x++) {
+            if(matrix[y][x] = 2) {
+                matrix[y][x] = 0
+            }
+        }
+    }
+    io.sockets.emit("send matrix", matrix);
+}
+
+function deleteGrassPredator() {
+    grassPredator = []
+    for (var y = 0; y < 60; y++) {
+        for (var x = 0; x < 60; x++) {
+            if(matrix[y][x] = 3) {
+                matrix[y][x] = 0
+            }
+        }
+    }
+    io.sockets.emit("send matrix", matrix);
+}
+
+function deleteFire() {
+    fireArr = []
+    for (var y = 0; y < 60; y++) {
+        for (var x = 0; x < 60; x++) {
+            if(matrix[y][x] = 4) {
+                matrix[y][x] = 0
+            }
+        }
+    }
+    io.sockets.emit("send matrix", matrix);
+}
+
+function weather() {
+    if (weath == "winter") {
+        weath = "spring"
+    }
+    else if (weath == "spring") {
+        weath = "summer"
+    }
+    else if (weath == "summer") {
+        weath = "autumn"
+    }
+    else if (weath == "autumn") {
+        weath = "winter"
+    }
+    io.sockets.emit('weather', weath)
+}
+setInterval(weather, 5000);
+
+
+
+
+
 io.on('connection', function (socket) {
     createObject();
     socket.on("kill", kill);
@@ -161,5 +231,9 @@ io.on('connection', function (socket) {
     socket.on("add grassEater", addGrassEater);
     socket.on("add grass predator", addGrassPredator);
     socket.on("add fire", addFire);
+    socket.on("deleteGrass", deleteGrass);
+    socket.on("deleteGrassEater", deleteGrassEater);
+    socket.on("deleteGrassPredator", deleteGrassPredator);
+    socket.on("deleteFire", deleteFire);
 });
 
